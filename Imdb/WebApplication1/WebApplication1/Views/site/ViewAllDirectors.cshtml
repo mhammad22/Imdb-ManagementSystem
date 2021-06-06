@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+
+}
+
+@using WebApplication1.Models;
+@using db_imdb.Models;
+@model List<Director>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Home.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width" />
+    <title>.:Home:.</title>
+</head>
+
+<body>
+
+    <!--<form action="../site/Login">-->
+    <!--<button type="submit" class="button button-block">LOGIN</button>-->
+    @*<form>
+            <div class="dropdown-new">
+                <button class="dropbtn">
+                    Settings&nbsp;&nbsp;
+                    <i style="color:white" class="fa fa-gear fa-spin"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </button>
+                <div class="dropdown-new-content">
+                    <a href="../../site/U_Pass">Change Password</a>
+                    <a href="../../site/Delete_Account">Delete Account</a>
+                    <a href="../../site/Logout">Logout</a>
+                </div>
+            </div>
+        </form>*@
+    <!--</form>-->
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../site"><img onclick="" src="~/Content/Logo1.png" width="130" height="120"></a>
+    <!-- inline CSS on div tag;  external CSS on text boxes;-->
+    <h2>All Movies</h2>
+
+    <div style="margin: 0px 50px">
+        <table width="1000" border="0" cellpadding="6">
+
+            @foreach (Director movie in Model)
+            {
+                if (movie.path != "")
+                {
+                    var ab = movie.path;
+                    //var rt = movie.rt;
+                    //var date = movie.date;
+                    //var rating = movie.rating;
+                    <tr>
+                        <td align="justify" valign="top" style="color:white">
+                            @movie.id">
+                        </td>
+                        <td align="justify" valign="top" style="color:white;white-space: nowrap">
+                            @movie.name
+                        </td>
+                        <td align="justify" valign="top" style="color:white;white-space: nowrap">
+
+                            Gender : @movie.gender
+                        </td>
+                        <td align="justify" valign="top" style="color:white;white-space: nowrap">
+                            Age : @movie.age
+                        </td>
+
+
+                    </tr>
+                }
+            }
+
+        </table>
+    </div>
+</body>
+</html>
